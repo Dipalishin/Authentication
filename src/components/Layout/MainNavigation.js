@@ -4,6 +4,12 @@ import classes from './MainNavigation.module.css';
 import { useContext } from 'react';
 const MainNavigation = () => {
 const authctx=useContext(AuthContext);
+//const history=useHistory();
+
+const logoutHandler=()=>{
+  authctx.logout();
+ // history.replace('/');
+}
 const isLoggedIn=authctx.isLoggedIn;
   return (
     <header className={classes.header}>
@@ -20,7 +26,7 @@ const isLoggedIn=authctx.isLoggedIn;
           </li>)}
           {isLoggedIn &&
           (<li>
-            <button>Logout</button>
+            <button onClick={logoutHandler}>Logout</button>
           </li>)}
         </ul>
       </nav>
